@@ -1,0 +1,82 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body & Fonts */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    background-color: #ffcc00;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    padding: 20px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+}
+
+.header-text h1 {
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+.header-text p {
+    font-size: 1.1em;
+}
+
+/* Sections */
+section {
+    margin-bottom: 40px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+section h2 {
+    color: #ff6600;
+    margin-bottom: 15px;
+}
+
+/* Lists */
+ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+/* Links */
+a {
+    color: #ff6600;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 10px;
+}
