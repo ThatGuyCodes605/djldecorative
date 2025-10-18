@@ -1,82 +1,247 @@
-/* Reset default browser styles */
+/* RESET */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Body & Fonts */
+/* BODY */
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
-    padding: 20px;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  background: linear-gradient(135deg, #fff8e7, #f9f3d3);
+  color: #333;
+  padding: 20px;
+  overflow-x: hidden;
 }
 
-/* Header */
+/* HEADER */
 header {
-    background-color: #ffcc00;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    padding: 20px;
+  background-color: #ffa500;
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 40px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Paint brush streak effect */
+header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50px;
+  width: 120%;
+  height: 100%;
+  background: url('paint-streak.png') no-repeat center/cover;
+  opacity: 0.15;
+  pointer-events: none;
 }
 
 .logo-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .logo {
-    width: 80px;
-    height: 80px;
-    margin-right: 20px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 3px solid white;
+  background-color: #fff;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
 .header-text h1 {
-    font-size: 2em;
-    margin-bottom: 5px;
+  font-size: 2.2em;
+  font-weight: 700;
+  background: linear-gradient(to bottom, #a64ca6 0%, #4caf50 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+  letter-spacing: 1px;
 }
+
 
 .header-text p {
-    font-size: 1.1em;
+  color: #333;
+  font-weight: 500;
 }
 
-/* Sections */
+.phone {
+  font-size: 1.1em;
+  color: #222;
+  margin-top: 5px;
+}
+
+/* SECTION BASE */
 section {
-    margin-bottom: 40px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
+  background-color: #fffdf7;
+  padding: 25px;
+  margin-bottom: 40px;
+  border-radius: 15px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  border-left: 8px solid #ffb347;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+/* SECTION TITLES */
 section h2 {
-    color: #ff6600;
-    margin-bottom: 15px;
+  color: #ff6600;
+  font-size: 1.6em;
+  margin-bottom: 15px;
+  position: relative;
 }
 
-/* Lists */
+section h2::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 4px;
+  background: #ffa31a;
+  margin-top: 6px;
+  border-radius: 2px;
+}
+
+/* TEXT */
+p {
+  margin-bottom: 15px;
+  line-height: 1.7;
+}
+
+/* LISTS */
 ul {
-    list-style-type: square;
-    padding-left: 20px;
+  list-style: none;
+  padding-left: 0;
 }
 
-/* Links */
+ul li {
+  padding-left: 25px;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+ul li::before {
+  content: "🖌️";
+  position: absolute;
+  left: 0;
+  color: #ff6600;
+}
+
+/* LINKS */
 a {
-    color: #ff6600;
-    text-decoration: none;
+  color: #ff6600;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-/* Footer */
+/* FOOTER */
 footer {
-    text-align: center;
-    margin-top: 50px;
-    padding: 20px;
-    background-color: #333;
-    color: #fff;
-    border-radius: 10px;
+  text-align: center;
+  margin-top: 50px;
+  padding: 20px;
+  background: linear-gradient(135deg, #333, #111);
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  letter-spacing: 0.5px;
+  font-size: 0.95em;
+}
+/* Paintbrush Animation Container */
+.paint-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff8e7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+/* The brush handle and bristles */
+.brush {
+  position: relative;
+  width: 120px;
+  height: 40px;
+  background: linear-gradient(90deg, #4d2e00, #6b3f00);
+  border-radius: 10px 0 0 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  animation: brush-move 2.8s ease-in-out forwards;
+}
+
+.brush::after {
+  content: "";
+  width: 25px;
+  height: 60px;
+  background: linear-gradient(180deg, #ffce3b, #ffa500);
+  border-radius: 4px;
+  position: absolute;
+  right: -20px;
+  top: -10px;
+  box-shadow: 0 0 10px rgba(255,165,0,0.5);
+}
+
+/* The "paint stroke" behind the brush */
+.paint-stroke {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 60px;
+  background: linear-gradient(90deg, #ffce3b, #ffa500);
+  transform: translateY(-50%);
+  width: 0;
+  border-radius: 10px;
+  animation: paint-stroke 2.8s ease-in-out forwards;
+}
+
+/* Fade in the main page content after animation */
+body.loaded header,
+body.loaded section,
+body.loaded footer {
+  animation: fade-in 1s ease forwards;
+  opacity: 0;
+  animation-delay: 2.5s;
+}
+
+/* Keyframes */
+@keyframes brush-move {
+  0% { transform: translateX(-150px); }
+  50% { transform: translateX(50vw); }
+  100% { transform: translateX(100vw); opacity: 0; }
+}
+
+@keyframes paint-stroke {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+@keyframes fade-in {
+  to { opacity: 1; }
+}
+
+/* Hide loader after animation */
+.paint-loader.hidden {
+  animation: fadeOut 0.5s forwards ease-in-out;
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; visibility: hidden; }
 }
